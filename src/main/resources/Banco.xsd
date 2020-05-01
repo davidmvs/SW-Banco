@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://cobrar.me/Banco" 
+		xmlns:tns="http://cobrar.me/Banco" 
+		elementFormDefault="qualified">
+		
+		<element name="CobrarRequest">
+			<complexType>
+				<sequence>
+					<element name="tarjeta" type="string"></element>
+					<element name="caducidad" type="string"></element>
+					<element name="cvv" type="int"></element>
+					<element name="monto" type="int"></element>
+				</sequence>
+			</complexType>
+		</element>
+		<element name="CobrarResponse">
+			<complexType>
+				<sequence>
+					<element name="respuesta" type="string"></element>
+				</sequence>
+			</complexType>
+		</element>
+		<element name="ReembolsoRequest">
+			<complexType>
+				<sequence>
+					<element name="tarjeta" type="string"></element>
+					<element name="monto" type="int"></element>
+				</sequence>
+			</complexType>
+		</element>
+		<element name="ReembolsoResponse">
+			<complexType>
+				<sequence>
+					<element name="respuesta" type="string"></element>
+				</sequence>
+			</complexType>
+		</element>
+		
+</schema>
