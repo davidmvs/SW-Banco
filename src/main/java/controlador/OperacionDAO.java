@@ -6,18 +6,16 @@ import bd.Conexion;
 
 public class OperacionDAO {
 	private String tarjeta;
-	private String fechacad;
-	private int cvv;
+	private int pin;
 	private int monto;
 	private Conexion conexion;
 	public OperacionDAO() {
 		
 	}
 	//Constructor para realizar un pago y registrarlo en la BD
-	public OperacionDAO(String tarjeta, String fechacad, int cvv, int monto) {
+	public OperacionDAO(String tarjeta, int pin, int monto) {
 		this.tarjeta=tarjeta;
-		this.fechacad=fechacad;
-		this.cvv=cvv;
+		this.pin=pin;
 		this.monto=monto;
 	}
 	
@@ -32,7 +30,7 @@ public class OperacionDAO {
 		conexion= new Conexion();
 		try {
 			conexion.getConnection().createStatement().execute(
-					"INSERT INTO pagos (tarjeta, fechacad, cvv, monto) VALUES "+ "('"+this.tarjeta+"','"+this.fechacad+"',"+this.cvv+","+
+					"INSERT INTO pagos (tarjeta, pin, monto) VALUES "+ "('"+this.tarjeta+"',"+this.pin+","+
 							this.monto+");");
 			resultado=true;
 		}catch(SQLException e) {
