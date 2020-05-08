@@ -33,7 +33,7 @@ public class Configuracion extends WsConfigurerAdapter{
 		  DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		  wsdl11Definition.setPortTypeName("bancoPort");
 		  wsdl11Definition.setLocationUri("/banco");
-		  wsdl11Definition.setTargetNamespace("http://cobrar.me/banco");
+		  wsdl11Definition.setTargetNamespace("http://cobrar.com/banco");
 		  wsdl11Definition.setSchema(bancoSchema);
 		  return wsdl11Definition;
 	  }
