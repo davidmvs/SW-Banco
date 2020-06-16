@@ -27,9 +27,9 @@ public class OperacionDAO {
 	
 	public boolean registrarPago() {
 		boolean resultado=false;
-		conexion= new Conexion();
+		this.conexion= new Conexion();
 		try {
-			conexion.getConnection().createStatement().execute(
+			this.conexion.connect().createStatement().execute(
 					"INSERT INTO pagos (tarjeta, pin, monto) VALUES "+ "('"+this.tarjeta+"',"+this.pin+","+
 							this.monto+");");
 			resultado=true;
@@ -41,9 +41,9 @@ public class OperacionDAO {
 	}
 	public boolean realizarReembolso() {
 		boolean resultado=false;
-		conexion= new Conexion();
+		this.conexion= new Conexion();
 		try {
-			conexion.getConnection().createStatement().execute(
+			this.conexion.connect().createStatement().execute(
 					"DELETE FROM pagos WHERE tarjeta="+this.tarjeta+" AND monto="+this.monto+";");
 			resultado=true;
 		}catch(SQLException e) {

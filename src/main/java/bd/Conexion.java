@@ -21,17 +21,22 @@ public class Conexion {
 	 * @param contra - Indica la contraseña del usuariopor el cual se va a aingresar a la Base de Datos
 	 * @return 
 	 */
-	public Connection getConnection() {
+public Connection connect() {
+		
 		try {
-			cn = DriverManager.getConnection(url, usuario, contra);
-		}catch(SQLException e) {
-			System.out.println("La conexion con la Base de Datos ha fallado");
+			this.cn = DriverManager.getConnection(this.url,this.usuario,this.contra);
+		} catch (SQLException e) {
+			System.out.println("Conexion Fallida!:\n" + e.getMessage());
 		}
-		if(cn!=null) {
-			System.out.println("La conexion con la Base de Datos ha sido exitosa");
-		}else {
-			System.out.println("La conexion con la Base de Datos ha fallado");			
+
+		if (cn != null) {
+			System.out.println("Conexion establecida");
+		} else {
+			System.out.println("No se pudo establecer conexion");
 		}
-		return cn;
+		
+		return this.cn;
+		
 	}
+
 }
